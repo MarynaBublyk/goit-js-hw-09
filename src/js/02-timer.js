@@ -18,6 +18,7 @@ const refs = {
 };
 
 refs.btnStartTimer.disabled = true;
+console.log(refs.btnStartTimer);
 refs.btnStartTimer.addEventListener('click', timerStart);
 
 let remainingTime = 0;
@@ -40,10 +41,18 @@ function onDateCheck(selectedDates) {
 
     if (selectedDate > currentDate) {
     refs.btnStartTimer.disabled = false;
-    }
-    Report.failure(
-    'Please, choose a date in the future'
-);    
+    Report.success(
+    '🥰 Congratulation! Click on start!',
+    '"Do not try to become a person of success but try to become a person of value." <br/><br/>- Albert Einstein',
+    'Okay'
+    );
+    return;
+}
+Report.failure(
+    '🥺 Ooops...',
+    'Please, choose a date in the future and remember: "Knowledge rests not upon truth alone, but upon error also." - Carl Gustav Jung',
+    'Okay'
+);
 }
 
 function timerStart() {
